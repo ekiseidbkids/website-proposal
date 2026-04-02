@@ -235,6 +235,14 @@
     width: 100%;
   }
 
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 920px;
+    width: 100%;
+  }
+
   .grid-4x3 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -243,7 +251,7 @@
     width: 100%;
   }
 
-  /* Number Badge (from Landing.jsx enrollment steps) */
+  /* Number Badge */
   .num-badge {
     display: inline-flex;
     align-items: center;
@@ -258,7 +266,7 @@
     flex-shrink: 0;
   }
 
-  /* Feature Icon Tile (from Home.jsx quick links) */
+  /* Feature Icon Tile */
   .icon-tile {
     background: #fff;
     border-radius: 1rem;
@@ -303,6 +311,43 @@
     font-size: 1.1rem;
     color: var(--gray-700);
     font-weight: 600;
+  }
+
+  /* Timeline item (Before/After) */
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  .timeline-item .card-text {
+    flex: 1;
+  }
+
+  /* Step card (How to Start) */
+  .step-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    color: var(--gray-800);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .step-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gray-800);
+  }
+  .step-card p {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    line-height: 1.6;
   }
 
   /* Big number */
@@ -537,8 +582,9 @@
   @media (max-width: 768px) {
     .slide { padding: 1.5rem 1rem 2.5rem; }
     .grid-2, .grid-3 { grid-template-columns: 1fr; }
-    .grid-4x3 { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .grid-4, .grid-4x3 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
     .card { padding: 1.25rem; }
+    .step-card { padding: 1rem; }
     .big-number { font-size: 5rem; }
     .rate-table th, .rate-table td { padding: 0.4rem 0.5rem; font-size: 0.75rem; }
     .example-table th, .example-table td { padding: 0.35rem 0.4rem; font-size: 0.7rem; }
@@ -574,7 +620,7 @@
     <div class="slide-content">
       <h1 class="gold-title" style="font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: 0.08em;">EKISEI DB KIDS</h1>
       <p style="color: #D1D5DB; font-size: 1.15rem; margin-top: 0.75rem;">会員サイトについて</p>
-<div style="margin-top: 1.5rem; display: inline-flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+      <div style="margin-top: 1.5rem; display: inline-flex; flex-direction: column; align-items: center; gap: 0.4rem;">
         <a href="https://ekisei-db-kids.netlify.app" target="_blank" rel="noopener noreferrer" style="cursor: pointer; display: block;"><img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https%3A%2F%2Fekisei-db-kids.netlify.app&color=000000&bgcolor=FFFFFF" alt="会員サイトQR" style="width: 130px; height: 130px; border-radius: 8px; display: block;"></a>
         <span style="color: #9CA3AF; font-size: 0.7rem; letter-spacing: 0.02em;">ekisei-db-kids.netlify.app</span>
       </div>
@@ -633,18 +679,67 @@
         </div>
         <div class="agenda-step">
           <span class="num-badge">2</span>
-          <span class="agenda-step-text">運営コストについて</span>
+          <span class="agenda-step-text">使い方について</span>
         </div>
         <div class="agenda-step">
           <span class="num-badge">3</span>
+          <span class="agenda-step-text">運営コストについて</span>
+        </div>
+        <div class="agenda-step">
+          <span class="num-badge">4</span>
           <span class="agenda-step-text">ちょっとしたご提案</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ====== SLIDE 4: Schedule & Attendance ====== -->
+  <!-- ====== SLIDE 4: Before / After ====== -->
   <div class="slide dark-bg" id="slide-4">
+    <div class="decorations">
+      <div class="deco-circle deco-1"></div>
+      <div class="deco-circle deco-3"></div>
+      <div class="deco-line"></div>
+    </div>
+    <div class="slide-content">
+      <p class="section-label">BEFORE / AFTER</p>
+      <h2 class="gold-title" style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 1.5rem;">連絡の見づらさを、予定ごとの見やすさへ</h2>
+      <div class="grid-2" style="margin: 0 auto;">
+        <div class="card">
+          <div class="card-title">今までは</div>
+          <div class="timeline-item">
+            <span class="num-badge">1</span>
+            <span class="card-text">同じLINEグループに「3/30の弁当」「4/2の大会」など、いろいろな日程の話題が混在していて確認しづらい。</span>
+          </div>
+          <div class="timeline-item">
+            <span class="num-badge">2</span>
+            <span class="card-text">出欠の連絡もLINEで流れやすく、後から見返しづらい。</span>
+          </div>
+          <div class="timeline-item">
+            <span class="num-badge">3</span>
+            <span class="card-text">月末のカレンダー画像を見ながら、各家庭で別々に予定管理する必要がある。</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">これからは</div>
+          <div class="timeline-item">
+            <span class="num-badge" style="background: #10B981; color: #fff;">A</span>
+            <span class="card-text">お知らせ情報から<strong style="color: var(--primary-dark);">スケジュールごとに内容確認</strong>できるので、必要な情報を追いやすくなります。</span>
+          </div>
+          <div class="timeline-item">
+            <span class="num-badge" style="background: #10B981; color: #fff;">B</span>
+            <span class="card-text">期限が早いものが上に来るため、見逃しもしにくくなります。</span>
+          </div>
+          <div class="timeline-item">
+            <span class="num-badge" style="background: #10B981; color: #fff;">C</span>
+            <span class="card-text">大事な情報は、投稿時や期限直前などにメール通知もできます。弁当アンケートや配車可否の確認にも向いています。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 5: Schedule & Attendance ====== -->
+  <div class="slide dark-bg" id="slide-5">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-3"></div>
@@ -681,8 +776,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 5: Calendar Image & News ====== -->
-  <div class="slide dark-bg" id="slide-5">
+  <!-- ====== SLIDE 6: Calendar Image & News ====== -->
+  <div class="slide dark-bg" id="slide-6">
     <div class="decorations">
       <div class="deco-circle deco-2"></div>
       <div class="deco-circle deco-4"></div>
@@ -720,8 +815,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 6: Email & Instagram AI ====== -->
-  <div class="slide dark-bg" id="slide-6">
+  <!-- ====== SLIDE 7: Email & Instagram AI ====== -->
+  <div class="slide dark-bg" id="slide-7">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-3"></div>
@@ -764,8 +859,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 7: Fee, Rules, Members ====== -->
-  <div class="slide dark-bg" id="slide-7">
+  <!-- ====== SLIDE 8: Fee, Rules, Members ====== -->
+  <div class="slide dark-bg" id="slide-8">
     <div class="decorations">
       <div class="deco-circle deco-2"></div>
       <div class="deco-circle deco-4"></div>
@@ -798,8 +893,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 8: Landing Page, Instagram, Contact ====== -->
-  <div class="slide dark-bg" id="slide-8">
+  <!-- ====== SLIDE 9: Landing Page, Instagram, Contact ====== -->
+  <div class="slide dark-bg" id="slide-9">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-3"></div>
@@ -838,8 +933,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 9: All Features Summary ====== -->
-  <div class="slide dark-bg" id="slide-9">
+  <!-- ====== SLIDE 10: All Features Summary ====== -->
+  <div class="slide dark-bg" id="slide-10">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-2"></div>
@@ -870,8 +965,51 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 10: Cost ====== -->
-  <div class="slide dark-bg" id="slide-10">
+  <!-- ====== SLIDE 11: How to Start ====== -->
+  <div class="slide dark-bg" id="slide-11">
+    <div class="decorations">
+      <div class="deco-circle deco-1"></div>
+      <div class="deco-circle deco-4"></div>
+      <div class="deco-line"></div>
+    </div>
+    <div class="slide-content">
+      <p class="section-label">HOW TO START</p>
+      <h2 class="gold-title" style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 1.5rem;">最初の利用手順</h2>
+      <div class="grid-4" style="margin: 0 auto;">
+        <div class="step-card">
+          <span class="num-badge">1</span>
+          <div>
+            <h4>メールアドレスを教えてください</h4>
+            <p>まずは管理者登録に必要なメールアドレスをご連絡ください。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="num-badge">2</span>
+          <div>
+            <h4>管理者が登録</h4>
+            <p>登録後、初期パスワードをお伝えします。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="num-badge">3</span>
+          <div>
+            <h4>初回ログイン後に変更</h4>
+            <p>最初はメールアドレスと初期パスワードでログインし、ご自身でパスワードを変更してください。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <span class="num-badge">4</span>
+          <div>
+            <h4>マイページから子どもを登録</h4>
+            <p>その後、マイページからお子さまの登録をお願いします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 12: Cost ====== -->
+  <div class="slide dark-bg" id="slide-12">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-2"></div>
@@ -903,8 +1041,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 11: Amazon Proposal - How it works ====== -->
-  <div class="slide dark-bg" id="slide-11">
+  <!-- ====== SLIDE 13: Amazon Proposal - How it works ====== -->
+  <div class="slide dark-bg" id="slide-13">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-3"></div>
@@ -968,8 +1106,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 12: Amazon - Revenue Example ====== -->
-  <div class="slide dark-bg" id="slide-12">
+  <!-- ====== SLIDE 14: Amazon - Revenue Example ====== -->
+  <div class="slide dark-bg" id="slide-14">
     <div class="decorations">
       <div class="deco-circle deco-2"></div>
       <div class="deco-circle deco-4"></div>
@@ -1022,8 +1160,8 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 13: Revenue Split ====== -->
-  <div class="slide dark-bg" id="slide-13">
+  <!-- ====== SLIDE 15: Revenue Split ====== -->
+  <div class="slide dark-bg" id="slide-15">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-3"></div>
@@ -1063,8 +1201,70 @@
     </div>
   </div>
 
-  <!-- ====== SLIDE 14: Summary ====== -->
-  <div class="slide dark-bg" id="slide-14">
+  <!-- ====== SLIDE 16: What Changes ====== -->
+  <div class="slide dark-bg" id="slide-16">
+    <div class="decorations">
+      <div class="deco-circle deco-1"></div>
+      <div class="deco-circle deco-2"></div>
+      <div class="deco-circle deco-4"></div>
+      <div class="deco-line"></div>
+    </div>
+    <div class="slide-content">
+      <p class="section-label">WHAT CHANGES</p>
+      <h2 class="gold-title" style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 1.75rem;">会員サイトで変わること</h2>
+      <div class="grid-3" style="margin: 0 auto;">
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">👀</div>
+          <div class="card-title" style="justify-content: center;">見やすくなる</div>
+          <div class="card-text" style="text-align: center;">お知らせ・予定・出欠が、LINEの流れの中ではなく、必要な場所で確認できます。</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🙌</div>
+          <div class="card-title" style="justify-content: center;">楽になる</div>
+          <div class="card-text" style="text-align: center;">係の負担軽減、月謝確認、資料の保存など、日々の小さな手間を減らせます。</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.75rem;">🚀</div>
+          <div class="card-title" style="justify-content: center;">広げられる</div>
+          <div class="card-text" style="text-align: center;">公開トップページにより、チーム紹介や新規勧誘にもつなげられます。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 17: Message ====== -->
+  <div class="slide dark-bg" id="slide-17">
+    <div class="decorations">
+      <div class="deco-circle deco-2"></div>
+      <div class="deco-circle deco-3"></div>
+    </div>
+    <div class="slide-content">
+      <p class="section-label">MESSAGE</p>
+      <h2 class="gold-title" style="font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 1.75rem;">お願いとご案内</h2>
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; max-width: 680px; margin: 0 auto;">
+        <div class="card">
+          <div style="font-size: 2rem; text-align: center; margin-bottom: 0.5rem;">🙏</div>
+          <div class="card-title" style="justify-content: center;">まだエラーがあるかもしれません</div>
+          <div class="card-text" style="text-align: center; line-height: 1.8;">
+            不具合や「あれ？」と思うことがあれば、<br>
+            都度ご連絡ください。確認・修正します。
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size: 2rem; text-align: center; margin-bottom: 0.5rem;">💡</div>
+          <div class="card-title" style="justify-content: center;">新しい機能も追加できます</div>
+          <div class="card-text" style="text-align: center; line-height: 1.8;">
+            持ち物を誰が持っているかの管理など、<br>
+            「こんなことができるといいな」があれば、ぜひ教えてください。<br>
+            できる範囲で、ではありますが、頑張ります。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SLIDE 18: Summary ====== -->
+  <div class="slide dark-bg" id="slide-18">
     <div class="decorations">
       <div class="deco-circle deco-1"></div>
       <div class="deco-circle deco-2"></div>
@@ -1117,7 +1317,7 @@
 
 <script>
   let currentSlide = 0;
-  const totalSlides = 14;
+  const totalSlides = 18;
   let barAnimated = false;
 
   // Build dots
@@ -1166,8 +1366,8 @@
       d.classList.toggle('active', i === currentSlide);
     });
 
-    // Trigger bar chart animation on slide 13 (index 12)
-    if (currentSlide === 12 && !barAnimated) {
+    // Trigger bar chart animation on slide 15 (index 14)
+    if (currentSlide === 14 && !barAnimated) {
       barAnimated = true;
       setTimeout(() => {
         document.getElementById('bar-club').classList.add('animate');
