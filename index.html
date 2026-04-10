@@ -422,6 +422,7 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
   }
   .bar-segment {
     display: flex;
@@ -430,6 +431,7 @@
     font-weight: 700;
     font-size: 0.9rem;
     transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-backface-visibility: hidden;
   }
   .bar-club {
     background: var(--primary);
@@ -1054,11 +1056,11 @@
       <!-- Key Points -->
       <div style="background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25); border-radius: 0.75rem; padding: 1rem; max-width: 680px; margin: 0 auto;">
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
-          <span style="font-size: 0.85rem; color: var(--gray-700); font-weight: 600;">&#10003;&nbsp;お買い物の代金は1円も増えません</span>
-          <span style="color: var(--gray-300);">｜</span>
-          <span style="font-size: 0.85rem; color: var(--gray-700); font-weight: 600;">&#10003;&nbsp;強制ではありません</span>
-          <span style="color: var(--gray-300);">｜</span>
-          <span style="font-size: 0.85rem; color: var(--gray-700); font-weight: 600;">&#10003;&nbsp;リンクを踏むだけ、それだけでOK</span>
+          <span style="font-size: 0.85rem; color: #E5E7EB; font-weight: 600;">&#10003;&nbsp;お買い物の代金は1円も増えません</span>
+          <span style="color: rgba(255,255,255,0.3);">｜</span>
+          <span style="font-size: 0.85rem; color: #E5E7EB; font-weight: 600;">&#10003;&nbsp;強制ではありません</span>
+          <span style="color: rgba(255,255,255,0.3);">｜</span>
+          <span style="font-size: 0.85rem; color: #E5E7EB; font-weight: 600;">&#10003;&nbsp;リンクを踏むだけ、それだけでOK</span>
         </div>
       </div>
     </div>
@@ -1232,7 +1234,7 @@
       <div class="deco-line"></div>
     </div>
     <div class="slide-content">
-      <p class="section-label">CONS</p>
+      <p class="section-label">DEMERIT</p>
       <h2 class="gold-title" style="font-size: clamp(1.5rem, 3.5vw, 2.2rem); margin-bottom: 1.75rem;">
         もちろんデメリットもあります
       </h2>
@@ -1439,8 +1441,8 @@
       d.classList.toggle('active', i === currentSlide);
     });
 
-    // Trigger bar chart animation on slide 15 (index 14)
-    if (currentSlide === 14 && !barAnimated) {
+    // Trigger bar chart animation on slide 16 (index 15)
+    if (currentSlide === 15 && !barAnimated) {
       barAnimated = true;
       setTimeout(() => {
         document.getElementById('bar-club').classList.add('animate');
